@@ -26,6 +26,9 @@ endef
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/minieap $(1)/usr/sbin/
+
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/minieap.init $(1)/etc/init.d/minieap
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
